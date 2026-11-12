@@ -270,3 +270,48 @@ footer {
         overflow-x: auto;
     }
 }
+/* =================================
+   ACTIVITY 5 - SMOOTH SCROLLING
+================================= */
+
+html {
+    scroll-behavior: smooth;
+}
+
+/* Prevent fixed header from hiding booking form */
+
+#booking-form {
+    scroll-margin-top: 150px;
+}
+
+
+/* =================================
+   ACTIVITY 5 - TOAST NOTIFICATION
+================================= */
+
+.toast {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+
+    background-color: #071952;
+    color: white;
+
+    padding: 15px 25px;
+
+    border-radius: 8px;
+
+    font-size: 16px;
+    font-weight: bold;
+
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+
+    opacity: 0;
+    transition: opacity 0.4s ease;
+
+    z-index: 2000;
+}
+
+.toast.show {
+    opacity: 1;
+}
