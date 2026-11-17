@@ -1,114 +1,164 @@
-/* =================================
+/* ==========================================
 ROOT VARIABLES
-================================= */
+========================================== */
 
 :root {
-–primary: #071952;
-–accent: lch(96.16% 97.11 106.06);
-–background: #F4F6FA;
-–text: #222222;
-–white: #ffffff;
+
+--primary: #071952;
+--accent: gold;
+--background: #F4F6FA;
+--text: #222222;
+--white: #ffffff;
+
 }
 
-/* =================================
+/* ==========================================
 GENERAL STYLING
-================================= */
+========================================== */
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    }
+
+}
 
 html {
+
 scroll-behavior: smooth;
+
 }
 
 body {
+
 font-family: Arial, sans-serif;
-background-color: var(–background);
-color: var(–text);
+background-color: var(--background);
+color: var(--text);
 line-height: 1.6;
+
 }
 
 section {
+
 padding: 50px 8%;
+
 }
 
 h2 {
+
 text-align: center;
-color: var(–primary);
+color: var(--primary);
 margin-bottom: 25px;
+
 }
 
-/* =================================
-HEADER AND NAVIGATION
-================================= */
+/* ==========================================
+HEADER AND NAVIGATION - FLEXBOX
+========================================== */
 
 header {
-background-color: var(–primary);
+
+background: linear-gradient(135deg, #071952, #088395);
 position: fixed;
 top: 0;
 width: 100%;
 z-index: 1000;
+
 }
 
-header h1 {
-color: var(–accent);
-text-align: center;
-padding: 15px;
+.navbar {
+
+display: flex;
+justify-content: space-between;
+align-items: center;
+padding: 15px 30px;
+
 }
 
-nav {
+.logo h1 {
+
+color: gold;
+font-size: 25px;
+
+}
+
+#nav-menu {
+
 display: flex;
 justify-content: space-around;
 align-items: center;
-padding: 15px;
+gap: 20px;
+
 }
 
-nav a {
+#nav-menu a {
+
 color: white;
 text-decoration: none;
 font-weight: bold;
-font-size: 16px;
-margin: 10px;
+font-size: 15px;
+
 }
 
-nav a:hover {
+#nav-menu a:hover {
+
 color: gold;
+
 }
 
-/* =================================
+/* HAMBURGER BUTTON */
+
+.menu-toggle {
+
+display: none;
+background: none;
+color: white;
+font-size: 28px;
+border: none;
+cursor: pointer;
+
+}
+
+/* ==========================================
 MAIN CONTENT
-================================= */
+========================================== */
 
 main {
-padding-top: 130px;
+
+padding-top: 80px;
+
 }
 
-/* =================================
+/* ==========================================
 HOME BANNER
-================================= */
+========================================== */
 
 #home-banner {
+
 background: linear-gradient(135deg, #071952, #088395);
 color: white;
 text-align: center;
 padding: 120px 20px;
+
 }
 
 #home-banner h1 {
+
 color: gold;
 font-size: 40px;
 margin-bottom: 20px;
+
 }
 
 #home-banner p {
+
 font-size: 20px;
 margin-bottom: 25px;
+
 }
 
 #home-banner a {
+
 display: inline-block;
 background-color: gold;
 color: #071952;
@@ -117,105 +167,212 @@ margin: 10px;
 text-decoration: none;
 border-radius: 8px;
 font-weight: bold;
+
 }
 
 #home-banner a:hover {
+
 background-color: white;
 transform: scale(1.05);
+
 }
 
-/* =================================
+/* ==========================================
 BUTTONS
-================================= */
+========================================== */
 
 button {
+
 background-color: gold;
 color: #071952;
 padding: 12px 25px;
 border: none;
 border-radius: 8px;
-font-size: 16px;
+font-size: 15px;
 font-weight: bold;
 cursor: pointer;
-margin: 10px;
+margin: 5px;
+
 }
 
 button:hover {
+
 background-color: white;
 transform: scale(1.05);
+
 }
 
-/* =================================
-MATCH SCHEDULE
-================================= */
+/* ==========================================
+MATCH SCHEDULE - CSS GRID
+========================================== */
 
 #matches {
-background-color: var(–background);
+
+background-color: var(--background);
+
 }
 
-table {
-width: 100%;
-border-collapse: collapse;
-margin-top: 25px;
+.match-controls {
+
+display: flex;
+justify-content: space-between;
+align-items: center;
+flex-wrap: wrap;
+gap: 15px;
+margin-bottom: 25px;
+
+}
+
+.filter-container {
+
+display: flex;
+align-items: center;
+gap: 10px;
+
+}
+
+.filter-container label {
+
+font-weight: bold;
+
+}
+
+.filter-container select {
+
+padding: 10px;
+border: 1px solid #ccc;
+border-radius: 6px;
+
+}
+
+.view-buttons {
+
+display: flex;
+gap: 10px;
+
+}
+
+.matches-grid {
+
+display: grid;
+grid-template-columns: repeat(2, 1fr);
+gap: 25px;
+
+}
+
+.match-card {
+
 background-color: white;
+padding: 25px;
+border-radius: 12px;
 box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+transition: transform 0.3s;
+
 }
 
-th {
-background-color: var(–primary);
-color: white;
-padding: 15px;
+.match-card:hover {
+
+transform: translateY(-5px);
+
 }
 
-td {
+.match-card h3 {
+
+color: var(--primary);
+font-size: 23px;
+margin-bottom: 15px;
+
+}
+
+.match-card p {
+
+margin: 10px 0;
+
+}
+
+.ticket-prices {
+
+background-color: #F4F6FA;
 padding: 12px;
-text-align: center;
-border-bottom: 1px solid #ddd;
+border-radius: 8px;
+margin: 15px 0;
+
 }
 
-tr:hover {
-background-color: #e8efff;
+.book-btn {
+
+display: inline-block;
+background-color: var(--primary);
+color: white;
+padding: 10px 20px;
+border-radius: 6px;
+text-decoration: none;
+margin-top: 10px;
+
 }
 
-/* =================================
+.book-btn:hover {
+
+background-color: #088395;
+
+}
+
+/* GRID AND LIST VIEW */
+
+.matches-grid.list-view {
+
+grid-template-columns: 1fr;
+
+}
+
+/* ==========================================
 BOOKING FORM
-================================= */
+========================================== */
 
 #booking {
-background-color: var(–background);
+
+background-color: var(--background);
+
 }
 
 form {
+
 background-color: white;
 padding: 30px;
 border-radius: 10px;
 box-shadow: 0 3px 10px rgba(0,0,0,0.1);
 max-width: 600px;
 margin: auto;
+
 }
 
 form label {
+
 display: block;
 font-weight: bold;
 margin-bottom: 5px;
+
 }
 
 form input,
+
 form select {
+
 width: 100%;
 padding: 12px;
 margin-bottom: 15px;
 border: 1px solid #ccc;
 border-radius: 5px;
+
 }
 
-/* =================================
+/* ==========================================
 BOOKING SUMMARY CARD
-================================= */
+========================================== */
 
 .booking-summary {
-background-color: white;
 
+background-color: white;
 padding: 25px;
 margin: 30px auto;
 max-width: 600px;
@@ -226,80 +383,141 @@ border-left: 5px solid #071952;
 }
 
 .booking-summary h3 {
-color: var(–primary);
+
+color: var(--primary);
 margin-bottom: 15px;
+
 }
 
 .booking-summary p {
+
 font-size: 16px;
 margin: 12px 0;
+
 }
 
 .booking-summary hr {
+
 border: 1px solid #dddddd;
 margin: 20px 0;
+
 }
 
 #summary-total {
+
 color: #088395;
 font-weight: bold;
+
 }
 
-/* =================================
+/* ==========================================
 MY BOOKINGS
-================================= */
+========================================== */
 
 #mybookings {
+
 background-color: white;
+
 }
 
-/* =================================
-GUIDELINES
-================================= */
+.table-container {
+
+width: 100%;
+overflow-x: auto;
+
+}
+
+table {
+
+width: 100%;
+border-collapse: collapse;
+margin-top: 25px;
+background-color: white;
+box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+
+}
+
+th {
+
+background-color: var(--primary);
+color: white;
+padding: 15px;
+
+}
+
+td {
+
+padding: 12px;
+text-align: center;
+border-bottom: 1px solid #ddd;
+
+}
+
+/* ==========================================
+GUIDELINES - CSS GRID
+========================================== */
 
 #guidelines {
-background-color: var(–background);
+
+background-color: var(--background);
+
 }
 
-article {
+.guidelines-grid {
+
+display: grid;
+grid-template-columns: repeat(3, 1fr);
+gap: 20px;
+
+}
+
+.guideline-card {
+
 background-color: white;
 padding: 25px;
-margin: 20px 0;
+margin: 0;
 border-radius: 10px;
 box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+
 }
 
-article h3 {
-color: var(–primary);
+.guideline-card h3 {
+
+color: var(--primary);
 margin-bottom: 10px;
+
 }
 
-/* =================================
+/* ==========================================
 FOOTER
-================================= */
+========================================== */
 
 footer {
-background-color: var(–primary);
+
+background-color: var(--primary);
 color: white;
 text-align: center;
 padding: 25px;
+
 }
 
-/* =================================
+/* ==========================================
 ACTIVITY 5 - SMOOTH SCROLLING
-================================= */
+========================================== */
 
 #booking-form {
-scroll-margin-top: 150px;
+
+scroll-margin-top: 110px;
+
 }
 
-/* =================================
+/* ==========================================
 ACTIVITY 5 - TOAST NOTIFICATION
-================================= */
+========================================== */
 
 .toast {
-position: fixed;
 
+position: fixed;
 bottom: 30px;
 right: 30px;
 background-color: #071952;
@@ -308,7 +526,7 @@ padding: 15px 25px;
 border-radius: 8px;
 font-size: 16px;
 font-weight: bold;
-box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+box-shadow: 0 3px 10px rgba(0,0,0,0.2);
 opacity: 0;
 transition: opacity 0.4s ease;
 z-index: 2000;
@@ -316,33 +534,127 @@ z-index: 2000;
 }
 
 .toast.show {
+
 opacity: 1;
+
 }
 
-/* =================================
-RESPONSIVE DESIGN
-================================= */
+/* ==========================================
+ACTIVITY 8 - TABLET RESPONSIVE DESIGN
+========================================== */
 
-@media (max-width: 768px) {
+@media screen and (max-width: 768px) {
 
-nav {
+/* HAMBURGER NAVIGATION */
+.navbar {
     flex-wrap: wrap;
-    gap: 10px;
+    padding: 12px 20px;
 }
-nav a {
-    font-size: 13px;
+.logo h1 {
+    font-size: 21px;
 }
+.menu-toggle {
+    display: block;
+}
+#nav-menu {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding: 15px 0;
+    gap: 15px;
+}
+#nav-menu.active {
+    display: flex;
+}
+/* MATCH GRID */
+.matches-grid {
+    grid-template-columns: 1fr;
+}
+/* GUIDELINES GRID */
+.guidelines-grid {
+    grid-template-columns: 1fr;
+}
+/* MATCH CONTROLS */
+.match-controls {
+    flex-direction: column;
+    align-items: stretch;
+}
+.filter-container {
+    flex-direction: column;
+    align-items: stretch;
+}
+/* HOME BANNER */
 #home-banner h1 {
     font-size: 28px;
 }
+#home-banner p {
+    font-size: 16px;
+}
+/* SECTIONS */
 section {
     padding: 40px 5%;
 }
-#matches {
-    overflow-x: auto;
-}
+/* BOOKING SUMMARY */
 .booking-summary {
     width: 100%;
+}
+
+}
+
+/* ==========================================
+ACTIVITY 8 - MOBILE RESPONSIVE DESIGN
+========================================== */
+
+@media screen and (max-width: 480px) {
+
+/* HEADER */
+.logo h1 {
+    font-size: 17px;
+}
+.navbar {
+    padding: 12px 15px;
+}
+/* HOME BANNER */
+#home-banner {
+    padding: 90px 15px;
+}
+#home-banner h1 {
+    font-size: 25px;
+}
+/* MATCH CARDS */
+.matches-grid {
+    grid-template-columns: 1fr;
+}
+.match-card {
+    padding: 18px;
+}
+/* FILTER */
+.filter-container select {
+    width: 100%;
+}
+/* GRID AND LIST BUTTONS */
+.view-buttons {
+    flex-direction: column;
+    width: 100%;
+}
+.view-buttons button {
+    width: 100%;
+}
+/* GUIDELINES */
+.guidelines-grid {
+    grid-template-columns: 1fr;
+}
+/* BOOKING FORM */
+form {
+    padding: 20px;
+}
+/* TOAST */
+.toast {
+    left: 15px;
+    right: 15px;
+    bottom: 15px;
+    text-align: center;
 }
 
 }

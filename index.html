@@ -9,14 +9,25 @@
 <body>
 <!-- HEADER SECTION -->
 <header id="site-header">
-    <h1>IPL TICKET BOOKING</h1>
-    <nav>
-        <a href="#home-banner">Home</a>
-        <a href="#matches">Match Schedule</a>
-        <a href="#booking-form">Book Ticket</a>
-        <a href="#mybookings">My Bookings</a>
-        <a href="#guidelines">Guidelines</a>
-    </nav>
+    <div class="navbar">
+        <div class="logo">
+            <h1>IPL TICKET BOOKING</h1>
+        </div>
+        <!-- HAMBURGER BUTTON -->
+        <button class="menu-toggle" id="menu-toggle"
+            aria-label="Toggle navigation"
+            aria-expanded="false">
+            ☰
+        </button>
+        <!-- NAVIGATION LINKS -->
+        <nav id="nav-menu">
+            <a href="#home-banner">Home</a>
+            <a href="#matches">Match Schedule</a>
+            <a href="#booking-form">Book Ticket</a>
+            <a href="#mybookings">My Bookings</a>
+            <a href="#guidelines">Guidelines</a>
+        </nav>
+    </div>
 </header>
 <main>
     <!-- HOME BANNER SECTION -->
@@ -61,61 +72,80 @@
     <!-- MATCH SCHEDULE SECTION -->
     <section id="matches">
         <h2>IPL Match Schedule</h2>
-        <label for="team-filter">Filter by Team:</label>
-        <select id="team-filter">
-            <option value="all">All Teams</option>
-            <option value="RCB">Royal Challengers Bengaluru</option>
-            <option value="CSK">Chennai Super Kings</option>
-            <option value="MI">Mumbai Indians</option>
-            <option value="KKR">Kolkata Knight Riders</option>
-        </select>
-        <table>
-            <thead>
-                <tr>
-                    <th>Match Number</th>
-                    <th>Teams</th>
-                    <th>Date & Time</th>
-                    <th>Venue</th>
-                    <th>General</th>
-                    <th>Premium</th>
-                    <th>VIP</th>
-                    <th>Action</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>1</td>
-                    <td>RCB vs CSK</td>
-                    <td>Sample Date, 7:30 PM</td>
-                    <td>Bengaluru</td>
-                    <td>₹1,500</td>
-                    <td>₹3,000</td>
-                    <td>₹5,000</td>
-                    <td>
-                        <a href="#booking-form">Book</a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>2</td>
-                    <td>MI vs KKR</td>
-                    <td>Sample Date, 7:30 PM</td>
-                    <td>Mumbai</td>
-                    <td>₹2,000</td>
-                    <td>₹3,500</td>
-                    <td>₹6,000</td>
-                    <td>
-                        <a href="#booking-form">Book</a>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
+        <!-- FILTER AND VIEW CONTROLS -->
+        <div class="match-controls">
+            <div class="filter-container">
+                <label for="team-filter">
+                    Filter by Team:
+                </label>
+                <select id="team-filter">
+                    <option value="all">All Teams</option>
+                    <option value="RCB">Royal Challengers Bengaluru</option>
+                    <option value="CSK">Chennai Super Kings</option>
+                    <option value="MI">Mumbai Indians</option>
+                    <option value="KKR">Kolkata Knight Riders</option>
+                </select>
+            </div>
+            <!-- GRID AND LIST BUTTONS -->
+            <div class="view-buttons">
+                <button type="button" id="grid-view">
+                    Grid View
+                </button>
+                <button type="button" id="list-view">
+                    List View
+                </button>
+            </div>
+        </div>
+        <!-- MATCH CARDS -->
+        <div class="matches-grid" id="matches-container">
+            <!-- MATCH 1 -->
+            <div class="match-card" data-teams="RCB,CSK">
+                <h3>RCB vs CSK</h3>
+                <p>
+                    Royal Challengers Bengaluru vs Chennai Super Kings
+                </p>
+                <p><strong>Match Number:</strong> 1</p>
+                <p><strong>Date:</strong> Sample Date</p>
+                <p><strong>Time:</strong> 7:30 PM</p>
+                <p><strong>Venue:</strong> Bengaluru</p>
+                <div class="ticket-prices">
+                    <p>General: ₹1,500</p>
+                    <p>Premium: ₹3,000</p>
+                    <p>VIP: ₹5,000</p>
+                </div>
+                <a href="#booking-form" class="book-btn">
+                    Book Tickets
+                </a>
+            </div>
+            <!-- MATCH 2 -->
+            <div class="match-card" data-teams="MI,KKR">
+                <h3>MI vs KKR</h3>
+                <p>
+                    Mumbai Indians vs Kolkata Knight Riders
+                </p>
+                <p><strong>Match Number:</strong> 2</p>
+                <p><strong>Date:</strong> Sample Date</p>
+                <p><strong>Time:</strong> 7:30 PM</p>
+                <p><strong>Venue:</strong> Mumbai</p>
+                <div class="ticket-prices">
+                    <p>General: ₹2,000</p>
+                    <p>Premium: ₹3,500</p>
+                    <p>VIP: ₹6,000</p>
+                </div>
+                <a href="#booking-form" class="book-btn">
+                    Book Tickets
+                </a>
+            </div>
+        </div>
     </section>
     <!-- BOOKING FORM SECTION -->
     <section id="booking">
         <h2>Book Your Tickets</h2>
         <form id="booking-form">
             <!-- MATCH SELECTION -->
-            <label for="match-select">Select Match:</label>
+            <label for="match-select">
+                Select Match:
+            </label>
             <select id="match-select" name="match" required>
                 <option value="">-- Select Match --</option>
                 <option value="RCB vs CSK">
@@ -126,21 +156,19 @@
                 </option>
             </select>
             <!-- STAND SELECTION -->
-            <label for="stand-select">Select Stand:</label>
+            <label for="stand-select">
+                Select Stand:
+            </label>
             <select id="stand-select" name="stand" required>
                 <option value="">-- Select Stand --</option>
-                <option value="General">
-                    General
-                </option>
-                <option value="Premium">
-                    Premium
-                </option>
-                <option value="VIP">
-                    VIP
-                </option>
+                <option value="General">General</option>
+                <option value="Premium">Premium</option>
+                <option value="VIP">VIP</option>
             </select>
             <!-- TICKET QUANTITY -->
-            <label for="ticket-quantity">Number of Tickets:</label>
+            <label for="ticket-quantity">
+                Number of Tickets:
+            </label>
             <input
                 type="number"
                 id="ticket-quantity"
@@ -156,6 +184,8 @@
                 type="text"
                 id="name"
                 name="name"
+                minlength="3"
+                maxlength="30"
                 required
             >
             <label for="email">Email:</label>
@@ -170,9 +200,10 @@
                 type="tel"
                 id="phone"
                 name="phone"
+                pattern="[0-9]{10}"
+                maxlength="10"
                 required
             >
-            <br>
             <button type="submit">
                 Confirm Booking
             </button>
@@ -216,42 +247,50 @@
     <!-- MY BOOKINGS SECTION -->
     <section id="mybookings">
         <h2>My Ticket Bookings</h2>
-        <table>
-            <thead>
-                <tr>
-                    <th>Booking ID</th>
-                    <th>Match</th>
-                    <th>Stand</th>
-                    <th>Tickets</th>
-                    <th>Total Amount</th>
-                    <th>Status</th>
-                </tr>
-            </thead>
-            <tbody>
-                <!-- Booking records will appear here later -->
-            </tbody>
-        </table>
-        <p>No bookings available yet.</p>
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Booking ID</th>
+                        <th>Match</th>
+                        <th>Stand</th>
+                        <th>Tickets</th>
+                        <th>Total Amount</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td colspan="6">
+                            No bookings available yet.
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
     </section>
     <!-- GUIDELINES SECTION -->
     <section id="guidelines">
         <h2>Ticket Guidelines</h2>
-        <div>
-            <article>
+        <div class="guidelines-grid">
+            <!-- GUIDELINE 1 -->
+            <article class="guideline-card">
                 <h3>Ticket Verification</h3>
                 <p>
                     Carry your valid ticket and show the QR code
                     at the stadium entrance.
                 </p>
             </article>
-            <article>
+            <!-- GUIDELINE 2 -->
+            <article class="guideline-card">
                 <h3>ID Proof Requirement</h3>
                 <p>
                     Carry a valid government-issued photo ID
                     for verification.
                 </p>
             </article>
-            <article>
+            <!-- GUIDELINE 3 -->
+            <article class="guideline-card">
                 <h3>Prohibited Items</h3>
                 <p>
                     Do not carry outside food, sharp objects,
